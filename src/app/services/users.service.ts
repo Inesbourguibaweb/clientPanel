@@ -1,5 +1,5 @@
+import { User } from './../components/models/user.model';
 import { Injectable } from '@angular/core';
-import { User } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,22 @@ export class UsersService {
   ];
   constructor() {}
 
-  getUsers() {
+  getUsers(): User[] {
     return this.users.slice();
+  }
+
+  addUser(user: User) {
+    let newUser = {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      isActive: true,
+      registered: new Date().toISOString(),
+      hide: false,
+    };
+
+    this.users = [...this.users, { ...newUser }];
+
+    return this.users;
   }
 }
