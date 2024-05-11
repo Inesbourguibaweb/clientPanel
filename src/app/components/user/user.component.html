@@ -1,1 +1,60 @@
-<p>user works!</p>
+<div class="example-container" *ngIf="showUserForm">
+  <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+    <mat-form-field>
+      <label>First Name</label>
+      <input
+        matInput
+        type="text"
+        formControlName="firstName"
+        class="form-control"
+        name="firstName"
+      />
+      <!-- <div [hidden]="!userFirstName.errors?.required" class="invalid-feedback">
+        First name required
+      </div> -->
+
+      <!-- <div [hidden]="!userFirstName.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters
+      </div> -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <label>Last Name</label>
+      <input
+        matInput
+        type="text"
+        formControlName="lastName"
+        class="form-control"
+        name="lastName"
+      />
+      <!-- <div [hidden]="!userLastName.errors?.required" class="invalid-feedback">
+        Last name required
+      </div>
+
+      <div [hidden]="!userLastName.errors?.minlength" class="invalid-feedback">
+          Must be at least 2 characters
+      </div> -->
+    </mat-form-field>
+    <mat-form-field>
+      <label>Email</label>
+      <input
+        matInput
+        type="email"
+        formControlName="email"
+        class="form-control"
+        name="email"
+      />
+      <!-- <div [hidden]="!userEmail.errors?.required" class="invalid-feedback">
+        Email name required
+      </div>
+
+      <div [hidden]="!userEmail.errors?.pattern" class="invalid-feedback">
+        Email is not valid
+      </div> -->
+    </mat-form-field>
+
+    <button [disabled]="!userForm.valid" class="btn btn-block mb-3">
+      Add New User
+    </button>
+  </form>
+</div>

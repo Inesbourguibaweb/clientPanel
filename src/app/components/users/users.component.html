@@ -1,4 +1,10 @@
 <p>USERS</p>
+<h2>Add User</h2>
+<button (click)="showUserForm = !showUserForm" class="btn btn-dark mb-3">
+  Add User
+</button>
+
+<app-user [showUserForm]="showUserForm"></app-user>
 <ul *ngIf="users.length > 0">
   <li *ngFor="let user of users">
     <h3>

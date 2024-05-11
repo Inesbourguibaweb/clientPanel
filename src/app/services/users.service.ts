@@ -1,3 +1,4 @@
+import { Observable, of } from 'rxjs';
 import { User } from './../components/models/user.model';
 import { Injectable } from '@angular/core';
 
@@ -17,8 +18,8 @@ export class UsersService {
   ];
   constructor() {}
 
-  getUsers(): User[] {
-    return this.users.slice();
+  getUsers(): Observable<User[]> {
+    return of(this.users);
   }
 
   addUser(user: User) {
@@ -30,9 +31,6 @@ export class UsersService {
       registered: new Date().toISOString(),
       hide: false,
     };
-
-    this.users = [...this.users, { ...newUser }];
-
-    return this.users;
+    this.users.unshift(newUser);
   }
 }

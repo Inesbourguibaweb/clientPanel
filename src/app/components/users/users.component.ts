@@ -9,15 +9,14 @@ import { UsersService } from '../../services/users.service';
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];
-  clicked = false;
+  showUserForm = false;
+  loaded: boolean = false;
+
   constructor(private usersService: UsersService) {}
   ngOnInit(): void {
-    this.users = this.usersService.getUsers();
-  }
-
-  getUsersInfo() {
-    console.log('this.usersService.getUsers()', this.usersService.getUsers());
-    this.users = this.usersService.getUsers();
-    this.clicked = true;
+    this.usersService.getUsers().subscribe((users) => {
+      this.users = users;
+      this.loaded = true;
+    });
   }
 }
