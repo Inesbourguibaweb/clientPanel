@@ -1,5 +1,5 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from './../models/user.model';
+import { User } from '../../models/user.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 

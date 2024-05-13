@@ -1,0 +1,24 @@
+<div>
+  <form [formGroup]="formGroup" class="form">
+    <mat-form-field class="form-element">
+      <input
+        matInput
+        type="string"
+        placeholder="Type via template"
+        formControlName="title"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <input
+        matInput
+        type="string"
+        placeholder="Type via component"
+        formControlName="body"
+      />
+    </mat-form-field>
+    <button (click)="onAddingPost(formGroup.value.title, formGroup.value.body)">
+      Add ne post
+    </button>
+  </form>
+</div>

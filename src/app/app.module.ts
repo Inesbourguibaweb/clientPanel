@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -27,6 +29,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { UserComponent } from './components/user/user.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PostComponent } from './components/post/post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +41,7 @@ import { UserComponent } from './components/user/user.component';
     NavbarComponent,
     SidebarComponent,
     UserComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,8 +52,6 @@ import { UserComponent } from './components/user/user.component';
     MatAutocompleteModule,
     ReactiveFormsModule,
     FormsModule,
-    MatCardModule,
-    MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
     MatCheckboxModule,
@@ -56,6 +59,11 @@ import { UserComponent } from './components/user/user.component';
     AngularFireDatabaseModule, // Add AngularFireDatabaseModule
     AngularFirestoreModule, // Add AngularFirestoreModule
     AngularFireStorageModule, // Add AngularFireStorageModule
+    MatCardModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatProgressBarModule,
+    HttpClientModule,
   ],
   providers: [provideAnimationsAsync(), LoginService],
   bootstrap: [AppComponent],
