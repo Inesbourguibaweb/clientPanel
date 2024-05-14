@@ -11,6 +11,11 @@ import { Subscription } from 'rxjs';
 })
 export class PostsComponent implements OnInit {
   posts: Post[] = [];
+  currentPost: Post = {
+    id: 0,
+    body: '',
+    title: '',
+  };
   // subsciption: Subscription;
   constructor(private postsService: PostsService) {}
 
@@ -20,5 +25,12 @@ export class PostsComponent implements OnInit {
       console.log('posts', posts);
       this.posts = posts;
     });
+  }
+
+  onAddingPost(newPost: Post) {
+    this.posts.unshift(newPost);
+  }
+  onEditingPost(post: Post) {
+    this.currentPost = post;
   }
 }
